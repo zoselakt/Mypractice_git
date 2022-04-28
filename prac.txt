@@ -1,0 +1,110 @@
+git desk top 사용
+* -f - -i 등 옵션사용불가 / reset, rebase, revert등 고급옵션 사용불가
+git기본명령어
+init/add/commit/push/pull
+branch/merge/rebase/checkout
+reset/revert/fetch/cherry-pick/clone
+rm/restore/clean/log/show/switch/blame/tag/diff/stash/remote
+
+//기본
+1.init: gitdesktop에서 저장소만들기후 자동으로 가능
+2.add: vscode에서 파일 생성/저장
+3.commit: gitdesktop - changes - 메세지입력후 commit
+4.push: push버튼클릭. 이후 fetch origin클릭
+
+//branch
+5.새로운 브렌치: current branch - new branch
+6.브렌치 병합(merge) 
+  1. Create pull Request
+  2. base:도착저장소 / compare: 옮겨질저장소 -> 메세지 입력 -> Create pull request버튼클릭
+  3. merge pull Request 클릭 - 클릭
+  4. pull origin클릭
+  * conflict 날경우(빨간색선) -> resolve comflicts -> 빨간색선 부분을 수정한다. - 수정이 되면 mark as resolved를 눌러 진행한다.
+7.브렌치 재지정(rebase) -> history -> 우클릭 ->
+8.브렌치 변경(checkout): current branch -> 다른 브렌치 변경
+9. 브렌치 삭제:
+
+//commit
+10.업데이트 되돌리기(reset)
+11.업데이트 되돌리기(revert)
+  - history -> Revert changes in commit -> revert확인창 -> history에 Revert표시확인후 push
+
+12. 변경사항 가져오기(pull / fetch -> merge)
+  - pull : 상단메뉴repository메뉴 pull선택 -> fetch origin 클릭
+  - fetch : fetch origin선택 -> pull origin클릭 
+
+13. cherry-pick(commit복사)
+- 한개또는 여러개 커밋선택가능
+- history -> commit한 파일 우클릭 -> cherrypick -> 선택한 커밋을 어떤 브랜치에 복사할지 선택
+
+14. 저장소 복사(clone)
+
+
+1. clone repository를 한다. ( 두번째 부터는 리포지토리에서 fetch repository 만해주시면되요!
+
+2. visual studio에서 프로젝트를 열고 자신이 맡은 부분을 코딩한다.
+
+3. github desktop에서 자신의 이름인 branch를 만들고 그곳에다 commit을 한다.
+
+4. 그리고 push origin을 한다.
+
+5. 깃헙 프로젝트 리포지토리에 들어가서 pull repository 를 누른다.
+
+6. 자신의 이름이 있는 branch 를 compare로  base는 master로 한후 변경내용을 comment로 저장한다.
+
+7. 팀원에게 카톡으로 확인해달라는 카톡을 보낸다. 문제없다라는 답을 받으면 merge버튼을 누른다.
+
+8. fetch origin을 눌러 변경내용이 잘수정되어있는지 확인한다.
+
+9. 자신의 이름 branch를 delete로 삭제한다.
+
+git branch -l -a -r -D -m -v
+
+ 옵션l: 로컬브랜치목록 (생략가능 git branch)
+
+ 옵션a: 로컬+원격 브랜치목록
+
+ 옵션r: 원격브랜치목록
+
+ 옵션D 브랜치명:  로컬브랜치 삭제
+
+ ex) git branch -D branch1
+ 옵션m 브랜치명 바꿀브랜치명: 브랜치 이름바꾸기
+
+ ex) git branch -m branch1 branch2
+ 옵션v: 로컬브랜치목록+마지막커밋내역
+
+ ---------------------------------------------------------------------------------------
+git diff [옵션]
+ --staged : 마지막 커밋과 staging area의 차이 확인 
+----------------------------------------------------------------------------------------
+git add [파일이름] [옵션] 
+옵션: -A, --all 변경된 모든 파일 추가
+----------------------------------------------------------------------------------------
+git commit [옵션]
+-m [메세지] : 커밋 메세지와 함께 커밋 /-a : 자동으로 add를 진행한 후 커밋/ -v : 커밋 메세지에 diff의 내용 포함
+----------------------------------------------------------------------------------------
+git rm [옵션] [파일이름]
+--cached : 파일을 staging area에서 제외(working directory의 파일은 유지됨)
+-f, --force : 삭제하려는 파일의 내용이 브랜치 끝 부분에서의 내용과 다를 경우 강제 삭제 
+--ignore-unmatch : 삭제하려는 파일이 없을 때 발생하는 에러를 무시
+----------------------------------------------------------------------------------------
+git log [옵션]
+    -p : 변경사항 확인
+    --oneline : 커밋 메세지만 한줄씩 표시
+    --all : 모든 브랜치 로그 표시
+    --graph : 브랜치 트리 그래프 표시
+--------------------------------------------------------------------------------------
+git branch -l -a -r -D -m -v
+
+ -l: 로컬브랜치목록 (생략가능 git branch)
+ -a: 로컬+원격 브랜치목록
+ -r: 원격브랜치목록
+ -d : 브랜치 삭제
+ -D 브랜치명:  로컬브랜치 삭제 / 브랜치 강제 삭제
+ [] : 브랜치 목록을 보여줌
+ [브랜치 이름] : 현재 커밋에 새 브랜치 생성
+ -v : 각 브랜치의 마지막 커밋 메세지를 보여줌
+ -merged : merge된 브랜치 목록 확인
+ -no-merged : merge하지 않은 브랜치 목록 확인
+------------------------------------------------------------------------------------------
